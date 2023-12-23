@@ -44,11 +44,11 @@ Elimina una imagen. c712b1aa90b7 es la 'IMAGE_ID'
 # Docker Compose Cheat Sheet
 
 ```
-docker-compose up
+docker-compose up --detach
 ```
 Inicia los servicios.
 - Con el parametro -d --detach se inician en segundo plano.
-- Con el parametro --build se contruyen las imagenesantes de iniciarlas.
+- Con el parametro --build se contruyen las imagenes antes de iniciarlas.
 
 ```
 docker-compose down
@@ -59,6 +59,12 @@ Detiene los servicios
 # Laravel Cheat Sheet
 
 ```
-docker exec -it nombre-container /bin/bash
+php artisan migrate:refresh --seed
 ```
-Abre consola interactiva con el contenedor.
+Regenera la BBDD con las migrations.
+- El parameto --seed hace que tambien se añadan los datos a la tabla.
+
+```
+php artisan route:list
+```
+Muestra la lista de rutas.
