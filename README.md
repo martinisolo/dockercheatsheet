@@ -62,7 +62,7 @@ Detiene los servicios
 php artisan migrate:refresh --seed
 ```
 Regenera la BBDD con las migrations.
-- El parameto '--seed' hace que tambien se añadan los datos a la tabla.
+- El parameto ´--seed´ hace que tambien se añadan los datos a la tabla.
 
 ```
 php artisan route:list
