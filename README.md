@@ -6,7 +6,7 @@
 docker container list --all
 ```
 Lista los contenedores que están en uso.
-- Con el parametro --all se muestran todos
+- Con el parametro '--all' se muestran todos
 
 ```
 docker start 7d11263ece2d
@@ -47,8 +47,8 @@ Elimina una imagen. c712b1aa90b7 es la 'IMAGE_ID'
 docker-compose up --detach
 ```
 Inicia los servicios.
-- Con el parametro -d --detach se inician en segundo plano.
-- Con el parametro --build se contruyen las imagenes antes de iniciarlas.
+- Con el parametro '--detach' se inician en segundo plano.
+- Con el parametro '--build' se contruyen las imagenes antes de iniciarlas.
 
 ```
 docker-compose down
@@ -62,7 +62,7 @@ Detiene los servicios
 php artisan migrate:refresh --seed
 ```
 Regenera la BBDD con las migrations.
-- El parameto --seed hace que tambien se añadan los datos a la tabla.
+- El parameto '--seed' hace que tambien se añadan los datos a la tabla.
 
 ```
 php artisan route:list
