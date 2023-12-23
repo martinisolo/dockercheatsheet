@@ -83,3 +83,15 @@ Regenera la BBDD con las migrations.
 php artisan route:list
 ```
 Muestra la lista de rutas.
+
+# Git Cheat Sheet
+
+```
+git branch -d localBranchName
+```
+Borra una rama local. localBranchName es el nombre de la rama.
+
+```
+git push origin --delete remoteBranchName
+```
+Borra una rama remota. remoteBranchName es el nombre de la rama.
