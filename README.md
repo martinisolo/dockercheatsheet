@@ -41,6 +41,20 @@ docker image remove c712b1aa90b7
 ```
 Elimina una imagen. c712b1aa90b7 es la 'IMAGE_ID'
 
+```
+docker build -t test_image:tag .
+```
+Crea una imagen leyendo un dockerfile.
+- test_image es el repo.
+- tag es el tag.
+- . es la ruta
+
+```
+docker run test_image:tag .
+```
+Crea un contenedor.
+- Con el parametro -p se puede definir el puerto. Ej: -p 80:80  el primer número es el puerto del equipo, el segundo el del contenedor.
+
 # Docker Compose Cheat Sheet
 
 ```
