@@ -1,0 +1,30 @@
+services:
+  my-service:
+    container_name: ubuntu-mushrooms
+    tty: true
+    runtime: nvidia
+    image: mushrooms
+    volumes:
+      - ./app:/mnt  # Monta el directorio local 
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1 # alternatively, use `count: all` for all GPUs
+              capabilities: [gpu]
+        # En el puerto que lo ponemos
+    ports:
+      - '80:80'
+    networks:
+      red_1:
+        ipv4_address: 172.31.0.2
+
+# En networks definimos el tipo de red que queremos para nuestros contendores.
+networks:
+  red_1:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.31.0.0/16
+          gateway: 172.31.0.1

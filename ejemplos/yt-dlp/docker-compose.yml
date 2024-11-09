@@ -1,0 +1,21 @@
+services:
+  my-service:
+    container_name: ubuntu-nvidia2
+    tty: true
+    runtime: nvidia
+    image: testing
+    volumes:
+      - .:/mnt  # Monta el directorio local 
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1 # alternatively, use `count: all` for all GPUs
+              capabilities: [gpu]
+    networks:
+      - fronttier
+
+networks:
+  fronttier:
+    driver: bridge
