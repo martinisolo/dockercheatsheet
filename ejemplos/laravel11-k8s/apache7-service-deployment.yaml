@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.34.0 (cbf2835db)
+  labels:
+    io.kompose.service: apache7-service
+  name: apache7-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: apache7-service
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml
+        kompose.version: 1.34.0 (cbf2835db)
+      labels:
+        io.kompose.service: apache7-service
+    spec:
+      containers:
+        - image: laravel11
+          name: apache-container-laravel11
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: apache7-service-claim0
+            - mountPath: /var/www/.cache
+              name: apache7-service-claim1
+      hostname: servidor-web
+      restartPolicy: Always
+      volumes:
+        - name: apache7-service-claim0
+          persistentVolumeClaim:
+            claimName: apache7-service-claim0
+        - name: apache7-service-claim1
+          persistentVolumeClaim:
+            claimName: apache7-service-claim1
