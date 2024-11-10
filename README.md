@@ -228,5 +228,15 @@ https://www.docker.com/blog/how-to-use-your-own-registry-2/
 docker run -d -p 5000:5000 --name registry registry:2.8.3
 ```
 
-
+```
 kubectl create secret docker-registry <nombre-del-secreto> --docker-server=http://192.168.0.19:5000 --docker-username=<usuario> --docker-password=<contraseña>
+```
+
+https://docs.github.com/es/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-with-a--data-variablesproductpat_v1-
+
+```
+export CR_PAT=YOUR_TOKEN
+echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+docker push ghcr.io/NAMESPACE/IMAGE_NAME:latest
+
+```
